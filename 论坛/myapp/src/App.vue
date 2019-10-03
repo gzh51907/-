@@ -2,17 +2,21 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 13:45:22
- * @LastEditTime: 2019-10-02 14:54:36
+ * @LastEditTime: 2019-10-03 15:47:28
  * @LastEditors: Please set LastEditors
  -->
 <template>
   <div id="app">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header style=" position: fixed;
+  left: 0;
+  top: 0;">Header</el-header>
       <el-main>
         <router-view />
       </el-main>
-      <el-footer>
+      <el-footer
+        style=" position: fixed;  bottom: 0; left: 0:right:0; margin: 0px;    width:100%;padding:0"
+      >
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -23,10 +27,11 @@
           active-text-color="#ffd04b"
           router
         >
-          <el-menu-item index="/index">贴吧</el-menu-item>
-          <el-menu-item index="1">二手</el-menu-item>
-          <el-menu-item index="1">失物</el-menu-item>
-          <!-- <el-menu-item index="1"></el-menu-item> -->
+          <el-menu-item index="/index" style="padding:0  30px;">贴吧</el-menu-item>
+          <el-menu-item index="1" style="padding:0  30px;">二手</el-menu-item>
+
+          <el-menu-item index="1" style="padding:0  30px;">失物</el-menu-item>
+          <el-menu-item index="1" style="padding:0  30px;">我的</el-menu-item>
         </el-menu>
       </el-footer>
     </el-container>
