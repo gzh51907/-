@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 13:45:22
- * @LastEditTime: 2019-10-03 15:47:28
+ * @LastEditTime: 2019-10-04 12:32:08
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -11,7 +11,7 @@
       <el-header style=" position: fixed;
   left: 0;
   top: 0;">Header</el-header>
-      <el-main>
+      <el-main style="margin-bottom:80px">
         <router-view />
       </el-main>
       <el-footer
@@ -28,10 +28,10 @@
           router
         >
           <el-menu-item index="/index" style="padding:0  30px;">贴吧</el-menu-item>
-          <el-menu-item index="1" style="padding:0  30px;">二手</el-menu-item>
+          <el-menu-item index="/used" style="padding:0  30px;">二手</el-menu-item>
 
-          <el-menu-item index="1" style="padding:0  30px;">失物</el-menu-item>
-          <el-menu-item index="1" style="padding:0  30px;">我的</el-menu-item>
+          <el-menu-item index="/lost" style="padding:0  30px;">失物</el-menu-item>
+          <el-menu-item index="/my" style="padding:0  30px;">我的</el-menu-item>
         </el-menu>
       </el-footer>
     </el-container>

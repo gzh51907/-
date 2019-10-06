@@ -2,26 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 14:35:34
- * @LastEditTime: 2019-10-06 18:04:06
+ * @LastEditTime: 2019-10-05 18:17:37
  * @LastEditors: Please set LastEditors
  -->
 <template name="component-name">
   <div>
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <div class="grid-content bg-purple">标题</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">作者</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">点赞</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">评论</div>
-      </el-col>
-    </el-row>
-
     <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
       <li v-for="i in data" :key="i" class="infinite-list-item">
         <el-row style="width:100%">
@@ -33,11 +18,14 @@
             style="width:100%"
           >
             <el-card :body-style="{ padding: '0px' }" style="width:100%">
-              <img src class="image" />
+              <img
+                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                class="image"
+              />
               <div style="padding: 14px;">
                 <span>好吃的汉堡</span>
                 <div class="bottom clearfix">
-                  <time class="time">{{ i.goods}}</time>
+                  <time class="time">{{ currentDate }}</time>
                   <el-button type="text" class="button">操作按钮</el-button>
                 </div>
               </div>
