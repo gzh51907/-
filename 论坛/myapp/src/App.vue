@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 13:45:22
- * @LastEditTime: 2019-10-04 12:32:08
+ * @LastEditTime: 2019-10-07 17:40:19
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -10,7 +10,19 @@
     <el-container>
       <el-header style=" position: fixed;
   left: 0;
-  top: 0;">Header</el-header>
+  top: 0;">
+        <el-menu
+          :default-active="activeIndex"
+          class="el-menu-demo"
+          mode="horizontal"
+          @select="handleSelect"
+          style="  display: flex; justify-content: space-between
+"
+        >
+          <el-menu-item index="1">left</el-menu-item>
+          <el-menu-item index="1">right</el-menu-item>
+        </el-menu>
+      </el-header>
       <el-main style="margin-bottom:80px">
         <router-view />
       </el-main>

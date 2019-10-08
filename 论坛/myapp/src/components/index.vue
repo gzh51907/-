@@ -2,16 +2,16 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 14:35:34
- * @LastEditTime: 2019-10-06 18:04:06
+ * @LastEditTime: 2019-10-08 10:41:26
  * @LastEditors: Please set LastEditors
  -->
 <template name="component-name">
   <div>
     <el-row :gutter="20">
-      <el-col :span="6">
+      <el-col :span="8">
         <div class="grid-content bg-purple">标题</div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <div class="grid-content bg-purple">作者</div>
       </el-col>
       <el-col :span="6">
@@ -23,25 +23,30 @@
     </el-row>
 
     <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-      <li v-for="i in data" :key="i" class="infinite-list-item">
-        <el-row style="width:100%">
-          <el-col
-            :span="8"
-            v-for="(o, index) in 1"
-            :key="o"
-            :offset="index > 0 ? 2 : 0"
-            style="width:100%"
-          >
-            <el-card :body-style="{ padding: '0px' }" style="width:100%">
-              <img src class="image" />
-              <div style="padding: 14px;">
-                <span>好吃的汉堡</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ i.goods}}</time>
-                  <el-button type="text" class="button">操作按钮</el-button>
-                </div>
-              </div>
-            </el-card>
+      <li v-for="i in data" :key="i" class="infinite-list-item" style=" margin-bottom: 10px;">
+        <el-row :gutter="20">
+          <el-col :span="6" style=" padding: 0;background-color: #fff;">
+            <div
+              class="grid-content bg-purple"
+              style=" padding: 0;background-color: #fff;line-height: 36px;"
+            >标题:</div>
+          </el-col>
+          <el-col :span="14" style=" padding: 0;background-color: #fff;">
+            <div
+              class="grid-content bg-purple"
+              style=" padding: 0;background-color: #fff;line-height: 36px;"
+            ></div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="8">
+            <div class="grid-content bg-purple" style=" background-color: #fff;">作者：</div>
+          </el-col>
+          <el-col :span="7">
+            <div class="grid-content bg-purple" style=" background-color: #fff;"></div>
+          </el-col>
+          <el-col :span="7">
+            <div class="grid-content bg-purple" style=" background-color: #fff;"></div>
           </el-col>
         </el-row>
       </li>
@@ -49,6 +54,7 @@
   </div>
 </template>
 <script>
+// const mysql = require("../db/mysql");
 export default {
   data() {
     return {
@@ -63,15 +69,18 @@ export default {
     // }
   },
   async created() {
+    // let sql = `select * from post`;
+    // let da = await mysql(sql);
+    // console.log(da);
     let {
       data: { datas }
     } = await this.$axios.get("https://www.nanshig.com/mobile/index.php", {
-      //   params: {
-      //     type_id: 11
-      //   }
+      params: {
+        act: "index"
+      }
     });
-    this.data = datas;
-    console.log(datas);
+    this.data = datas.slice(1);
+    console.log(datas.slice(1));
   }
 };
 </script>
@@ -81,6 +90,9 @@ li {
   list-style: none;
 
   margin: 0;
+  padding: 0;
+}
+.sl {
   padding: 0;
 }
 .time {
@@ -112,5 +124,31 @@ li {
 
 .clearfix:after {
   clear: both;
+}
+.el-row {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
 }
 </style>

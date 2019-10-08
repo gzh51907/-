@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 14:35:34
- * @LastEditTime: 2019-10-05 18:17:37
+ * @LastEditTime: 2019-10-07 17:37:51
  * @LastEditors: Please set LastEditors
  -->
 <template name="component-name">
@@ -36,6 +36,7 @@
     </ul>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -59,7 +60,6 @@ export default {
       //   }
     });
     this.data = datas;
-    console.log(datas);
   }
 };
 </script>
