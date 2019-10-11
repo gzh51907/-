@@ -2,13 +2,19 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 14:35:34
- * @LastEditTime: 2019-10-07 17:37:51
+ * @LastEditTime: 2019-10-10 19:21:41
  * @LastEditors: Please set LastEditors
  -->
 <template name="component-name">
   <div>
-    <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-      <li v-for="i in data" :key="i" class="infinite-list-item">
+    <ul
+      class="infinite-list"
+      v-infinite-scroll="load"
+      style="overflow:auto"
+      v-for="i in data"
+      :key="i"
+    >
+      <li class="infinite-list-item">
         <el-row style="width:100%">
           <el-col
             :span="8"
@@ -17,7 +23,7 @@
             :offset="index > 0 ? 2 : 0"
             style="width:100%"
           >
-            <el-card :body-style="{ padding: '0px' }" style="width:100%">
+            <!-- <el-card :body-style="{ padding: '0px' }" style="width:100%">
               <img
                 src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                 class="image"
@@ -29,7 +35,11 @@
                   <el-button type="text" class="button">操作按钮</el-button>
                 </div>
               </div>
-            </el-card>
+            </el-card>-->
+            <el-image
+              :fit="cover "
+              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            ></el-image>
           </el-col>
         </el-row>
       </li>

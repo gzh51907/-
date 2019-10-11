@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 13:53:14
- * @LastEditTime: 2019-10-08 14:52:12
+ * @LastEditTime: 2019-10-10 19:26:28
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
@@ -14,6 +14,7 @@ import My from '../components/my.vue'
 import Lost from '../components/lost.vue'
 import Reg from '../components/reg.vue'
 import Login from '../components/login.vue'
+import store from '../store'
 let router = new VueRouter({
     routes: [{
         name: 'index',
@@ -25,15 +26,25 @@ let router = new VueRouter({
     }, {
         name: ' used',
         path: '/used',
-        component: Used
+        component: Used,
+        meta: {
+            requiresAuth: true
+        }
+
     }, {
         name: 'my',
         path: '/my',
-        component: My
+        component: My,
+        meta: {
+            requiresAuth: true
+        }
     }, {
         name: 'lost',
         path: '/lost',
-        component: Lost
+        component: Lost,
+        meta: {
+            requiresAuth: true
+        }
     }, {
         name: 'reg',
         path: '/reg',
@@ -43,5 +54,34 @@ let router = new VueRouter({
         path: '/login',
         component: Login
     }]
+});
+router.beforeEach(async function (to, from, next) {
+
+    if (to.meta.requiresAuth) {
+        let user = localStorage.getItem('user');
+        if (user) {
+            let res = await store.dispatch('checkLogin')
+            if (res === 400) {
+                router.push({
+                    path: '/login',
+                    query: {
+                        targetUrl: to.fullPath
+                    }
+                })
+            } else {
+                next();
+            }
+
+        } else {
+            router.push({
+                path: '/login',
+                query: {
+                    targetUrl: to.fullPath
+                }
+            })
+        }
+    } else {
+        next();
+    }
 })
 export default router;

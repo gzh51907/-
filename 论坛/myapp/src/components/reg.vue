@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-08 14:37:57
- * @LastEditTime: 2019-10-08 21:05:52
+ * @LastEditTime: 2019-10-10 20:52:02
  * @LastEditors: Please set LastEditors
  -->
 <template name="component-name">
@@ -117,7 +117,7 @@ export default {
           console.log(data.result);
           if (data.result.n) {
             this.$router.replace({
-              name: "my",
+              name: "index",
               params: { username },
               query: { username }
             });
