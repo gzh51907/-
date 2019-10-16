@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-02 13:53:14
- * @LastEditTime: 2019-10-10 19:26:28
+ * @LastEditTime: 2019-10-14 09:22:52
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
@@ -21,7 +21,7 @@ let router = new VueRouter({
         path: '/index',
         component: Index
     }, {
-        path: '/',
+        name: '/',
         redirect: '/index'
     }, {
         name: ' used',
